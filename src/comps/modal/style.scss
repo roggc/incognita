@@ -1,0 +1,42 @@
+.container
+{
+  border:inherit;
+  background-color: inherit;
+  border-radius: inherit;
+  padding: inherit;
+  position: absolute;
+  visibility: hidden;
+  cursor: initial;
+}
+
+.modal
+{
+  position: relative;
+  visibility: initial;
+  z-index: 1;
+  background-color: navajowhite;
+  border:1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  margin:5px;
+}
+
+.fade
+{
+  transition:opacity .5s;
+}
+
+.show
+{
+  opacity:1;
+}
+
+.notShow
+{
+  opacity: 0;
+}
+
+.cursor
+{
+  cursor:pointer;
+}

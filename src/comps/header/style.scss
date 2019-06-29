@@ -1,0 +1,29 @@
+.border
+{
+  border-radius:5px;
+  border:1px solid black;
+  background-color: brown;
+  padding:5px;
+  margin:5px;
+}
+
+.border2
+{
+  border-radius:5px;
+  border:1px solid black;
+  background-color: navajowhite;
+  padding:5px;
+  margin:5px;
+}
+
+.flex1
+{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu
+{
+  cursor:pointer;
+}

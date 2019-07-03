@@ -13,7 +13,7 @@
 {
   position: relative;
   visibility: initial;
-  z-index: 1;
+  z-index: 0;
   background-color: navajowhite;
   border:1px solid black;
   border-radius: 5px;
@@ -24,19 +24,30 @@
 .fade
 {
   transition:opacity .5s;
+  transition:display .5s;
+  animation-name:fade;
+  animation-duration:1s;
 }
 
 .show
 {
   opacity:1;
+  display:inherit;
 }
 
 .notShow
 {
   opacity: 0;
+  display: none;
 }
 
 .cursor
 {
   cursor:pointer;
+}
+
+@keyframes fade
+{
+  from {opacity: 0;}
+  to {opacity: 1;}
 }

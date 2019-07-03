@@ -2,6 +2,7 @@ __dev__&& console.log('src/comps/modal/render')
 
 import React,{useState,useRef} from 'react'
 import style from 'src/comps/modal/style'
+import {Link} from 'react-router-dom'
 
 export default
 ({children,opa})=>
@@ -19,7 +20,10 @@ export default
           {children&& children.map
           (
             (e,i)=>
-            <div key={i} className={`${style.cursor}`}>{e}</div>
+            <div key={i} className={`${style.cursor}`}>
+              {e==='home'?<Link to={'/'}>{e}</Link>
+              :<Link to={'/'+e}>{e}</Link>}
+            </div>
           )
         }
       </div>

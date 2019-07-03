@@ -1,4 +1,19 @@
 .row
 {
-  
+  display: flex;
+  justify-content: space-between;
+}
+
+input
+{
+  border-radius:5px;
+}
+
+button
+{
+  padding: 2px 5px;
+  margin: 5px 0px 0px 0px;
+  border-radius: 5px;
+  font-size: 0.99em;
+  cursor: pointer;
 }

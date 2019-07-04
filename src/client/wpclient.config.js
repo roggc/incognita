@@ -5,6 +5,7 @@ const HtmlWebpackPlugin= require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 const dev=process.env.NODE_ENV==='dev'
+const api='http://api.royalty.ga';
 
 module.exports =
 {
@@ -74,7 +75,7 @@ module.exports =
     (
       {
         __dev__:dev,
-        //__api__:'\''+api+'\'',
+        __api__:'\''+api+'\'',
       }
     )
   ],

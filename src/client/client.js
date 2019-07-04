@@ -10,7 +10,7 @@ import 'src/assets/favicon/favicon-32x32'
 import 'src/assets/favicon/favicon'
 import 'src/assets/favicon/site'
 
-import App from 'src/comps/app/render'
+import App from 'src/comps/app/index'
 
 render
 (

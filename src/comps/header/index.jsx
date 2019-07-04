@@ -1,8 +1,8 @@
-__dev__&& console.log('src/comps/header/render')
+__dev__&& console.log('src/comps/header/index')
 
 import React,{useState,useRef} from 'react'
 import style from 'src/comps/header/style'
-import Modal from 'src/comps/modal/render'
+import Modal from 'src/comps/modal/index'
 import useClickOutside from 'src/hooks/useClickOutside'
 
 export default

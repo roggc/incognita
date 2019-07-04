@@ -1,4 +1,4 @@
-__dev__&& console.log('src/comps/footer/render')
+__dev__&& console.log('src/comps/footer/index')
 
 import React from 'react'
 import style from 'src/comps/footer/style'

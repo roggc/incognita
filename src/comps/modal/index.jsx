@@ -1,9 +1,7 @@
-__dev__&& console.log('src/comps/modal/render')
-
+__dev__&& console.log('src/comps/modal/index')
 import React,{useState,useRef} from 'react'
 import style from 'src/comps/modal/style'
 import {Link} from 'react-router-dom'
-
 export default
 ({children,opa})=>
 {

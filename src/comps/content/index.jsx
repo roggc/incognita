@@ -1,10 +1,10 @@
-__dev__&& console.log('src/comps/content/render')
+__dev__&& console.log('src/comps/content/index')
 
 import React from 'react'
 import {Route} from 'react-router-dom'
-import Login from 'src/comps/login/render'
-import About from 'src/comps/about/render'
-import Home from 'src/comps/home/render'
+import Login from 'src/comps/login/index'
+import About from 'src/comps/about/index'
+import Home from 'src/comps/home/index'
 import style from 'src/comps/content/style'
 import style2 from 'src/assets/styles/style1'
 

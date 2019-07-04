@@ -1,9 +1,9 @@
-__dev__&& console.log('src/comps/app/render')
+__dev__&& console.log('src/comps/app/index')
 
 import React from 'react'
-import Header from 'src/comps/header/render'
-import Content from 'src/comps/content/render'
-import Footer from 'src/comps/footer/render'
+import Header from 'src/comps/header/index'
+import Content from 'src/comps/content/index'
+import Footer from 'src/comps/footer/index'
 import style from 'src/comps/app/style'
 
 export default

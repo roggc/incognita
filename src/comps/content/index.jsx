@@ -9,15 +9,25 @@ import style2 from 'src/assets/styles/style1'
 export default
 ()=>
 {
-  const [login,setLogin]=useState
+  const [login1,setLogin1]=useState
   (
     {
     }
   )
-  const loginState=
+  const loginState1=
   {
-    login,
-    setLogin
+    login:login1,
+    setLogin:setLogin1
+  }
+  const [login2,setLogin2]=useState
+  (
+    {
+    }
+  )
+  const loginState2=
+  {
+    login:login2,
+    setLogin:setLogin2
   }
   const el=
   <div className={`${style.border} ${style.height}`}>
@@ -31,8 +41,8 @@ export default
         <Route path='/login' render=
         {
           ()=><div className={`${style2.border2} ${style.fade}`}>
-              <Login name={'Log1'} {...loginState}></Login>
-              <Login name={'Log2'} {...loginState}></Login>
+              <Login {...loginState1}/>
+              <Login {...loginState2}/>
             </div>
         }
         />

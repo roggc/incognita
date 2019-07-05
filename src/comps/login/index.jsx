@@ -6,7 +6,7 @@ import graphql from 'src/graphql/client'
 import Loading from 'src/comps/loading/index'
 
 export default
-({login,setLogin,name}, ...rest)=>
+({login,setLogin}, ...rest)=>
 {
   const emailRef=useRef(null)
   const psswrdRef=useRef(null)
@@ -17,7 +17,7 @@ export default
     (
       {
         ...login,
-        ['loading'+name]:true
+        loading:true
       }
     )
     let query=
@@ -62,10 +62,10 @@ export default
           (
             {
               ...login,
-              ['loggedin'+name]:true,
-              ['name'+name]:d.login.res.name,
-              ['email'+name]:d.login.res.email,
-              ['id'+name]:d.login.res.id
+              loggedin:true,
+              name:d.login.res.name,
+              email:d.login.res.email,
+              id:d.login.res.id
             }
           )
         }
@@ -75,10 +75,10 @@ export default
           (
             {
               ...login,
-              ['logError'+name]:true,
-              ['errName'+name]:d.login.error.name,
-              ['errMessage'+name]:d.login.error.message,
-              ['errFunction'+name]:d.login.error.function
+              logError:true,
+              errName:d.login.error.name,
+              errMessage:d.login.error.message,
+              errFunction:d.login.error.function
             }
           )
         }
@@ -92,7 +92,7 @@ export default
         <span>name:</span>
       </div>
       <div>
-        <span>{login['errName'+name]}</span>
+        <span>{login.errName}</span>
       </div>
     </div>
     <div className={style.row}>
@@ -100,7 +100,7 @@ export default
         <span>message:</span>
       </div>
       <div>
-        <span>{login['errMessage'+name]}</span>
+        <span>{login.errMessage}</span>
       </div>
     </div>
     <div className={style.row}>
@@ -108,7 +108,7 @@ export default
         <span>function:</span>
       </div>
       <div>
-        <span>{login['errFunction'+name]}</span>
+        <span>{login.errFunction}</span>
       </div>
     </div>
   </div>
@@ -119,7 +119,7 @@ export default
         <span>name:</span>
       </div>
       <div>
-        <span>{login['name'+name]}</span>
+        <span>{login.name}</span>
       </div>
     </div>
     <div className={style.row}>
@@ -127,7 +127,7 @@ export default
         <span>email:</span>
       </div>
       <div>
-        <span>{login['email'+name]}</span>
+        <span>{login.email}</span>
       </div>
     </div>
     <div className={style.row}>
@@ -135,7 +135,7 @@ export default
         <span>id:</span>
       </div>
       <div>
-        <span>{login['id'+name]}</span>
+        <span>{login.id}</span>
       </div>
     </div>
     <div className={style.row}>
@@ -148,7 +148,7 @@ export default
     </div>
   </div>
   const el1=
-  login['loading'+name]?
+  login.loading?
   <Loading/>:
   <div>
     <div className={style.row}>
@@ -164,5 +164,5 @@ export default
       <div><button onClick={btnClick}>enter</button></div>
     </div>
   </div>
-  return login['loggedin'+name]?el2:login['logError'+name]?el3:el1
+  return login.loggedin?el2:login.logError?el3:el1
 }

@@ -62,6 +62,7 @@ export default
           (
             {
               ...login,
+              loading:false,
               loggedin:true,
               name:d.login.res.name,
               email:d.login.res.email,
@@ -75,10 +76,59 @@ export default
           (
             {
               ...login,
+              loading:false,
               logError:true,
               errName:d.login.error.name,
               errMessage:d.login.error.message,
               errFunction:d.login.error.function
+            }
+          )
+        }
+      }
+    )
+  }
+  const onKeyPressed=
+  e=>
+  {
+    if(e.keyCode === 13)
+    {
+      btnClick(e)
+    }
+  }
+  const tryAgainClick=
+  e=>
+  {
+    setLogin
+    (
+      {
+        ...login,
+        loggedin:false,
+        logError:false,
+      }
+    )
+  }
+  const logoutClick=
+  e=>
+  {
+    let query=
+    `
+    mutation
+    {
+      logout
+    }
+    `
+    graphql(query)({})
+    (
+      d=>
+      {
+        if(d.logout===true)
+        {
+          setLogin
+          (
+            {
+              ...login,
+              loggedin:false,
+              logError:false,
             }
           )
         }
@@ -109,6 +159,14 @@ export default
       </div>
       <div>
         <span>{login.errFunction}</span>
+      </div>
+    </div>
+    <div className={style.row}>
+      <div>
+        <span></span>
+      </div>
+      <div onClick={tryAgainClick}>
+        <span><a className={style.anchor}>try again</a></span>
       </div>
     </div>
   </div>
@@ -142,7 +200,7 @@ export default
       <div>
         <span></span>
       </div>
-      <div>
+      <div onClick={logoutClick}>
         <span><a className={style.anchor}>logout</a></span>
       </div>
     </div>
@@ -150,7 +208,7 @@ export default
   const el1=
   login.loading?
   <Loading/>:
-  <div>
+  <div onKeyDown={onKeyPressed}>
     <div className={style.row}>
       <div><span>email:</span></div>
       <div><input type='text' ref={emailRef}/></div>

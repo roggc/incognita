@@ -25,7 +25,12 @@ export default
       <div className={style.flex2}>
         <Route path='/about' render=
         {
-          ()=><div><About/></div>
+          ()=>
+          {
+            const el=
+            <div><About/></div>
+            return el
+          }
         }
         />
         <Route path='/login' render=

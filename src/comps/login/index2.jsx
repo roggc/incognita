@@ -6,14 +6,26 @@ import graphql from 'src/graphql/client'
 import Loading from 'src/comps/loading/index'
 
 export default
-({children,setLoading,setResult,setError,name}, ...rest)=>
+({children,setGreeting}, ...rest)=>
 {
+  const [state,setState]=
+  useState
+  (
+    {
+    }
+  )
   const emailRef=useRef(null)
   const psswrdRef=useRef(null)
   const btnClick=
   e=>
   {
-    setLoading(true)(name)
+    setState
+    (
+      {
+        ...state,
+        loading:true,
+      }
+    )
     let query=
     `
       mutation ($email: String!, $psswrd: String!)
@@ -52,11 +64,29 @@ export default
       {
         if(d.login.res)
         {
-          setResult(d.login.res)(name)
+          setState
+          (
+            {
+              ...state,
+              loggedin:true,
+              name:d.login.res.name,
+              email:d.login.res.email,
+              id:d.login.res.id
+            }
+          )
         }
         else
         {
-          setError(d.login.error)(name)
+          setState
+          (
+            {
+              ...state,
+              logError:true,
+              errName:d.login.error.name,
+              errMessage:d.login.error.message,
+              errFunction:d.login.error.function
+            }
+          )
         }
       }
     )
@@ -68,7 +98,7 @@ export default
         <span>name:</span>
       </div>
       <div>
-        <span>{children['errName'+name]}</span>
+        <span>{state.errName}</span>
       </div>
     </div>
     <div className={style.row}>
@@ -76,7 +106,7 @@ export default
         <span>message:</span>
       </div>
       <div>
-        <span>{children['errMessage'+name]}</span>
+        <span>{state.errMessage}</span>
       </div>
     </div>
     <div className={style.row}>
@@ -84,7 +114,7 @@ export default
         <span>function:</span>
       </div>
       <div>
-        <span>{children['errFunction'+name]}</span>
+        <span>{state.errFunction}</span>
       </div>
     </div>
   </div>
@@ -95,7 +125,7 @@ export default
         <span>name:</span>
       </div>
       <div>
-        <span>{children['name'+name]}</span>
+        <span>{state.name}</span>
       </div>
     </div>
     <div className={style.row}>
@@ -103,7 +133,7 @@ export default
         <span>email:</span>
       </div>
       <div>
-        <span>{children['email'+name]}</span>
+        <span>{state.email}</span>
       </div>
     </div>
     <div className={style.row}>
@@ -111,7 +141,7 @@ export default
         <span>id:</span>
       </div>
       <div>
-        <span>{children['id'+name]}</span>
+        <span>{state.id}</span>
       </div>
     </div>
     <div className={style.row}>
@@ -124,7 +154,7 @@ export default
     </div>
   </div>
   const el1=
-  children['loading'+name]?
+  state.loading?
   <Loading/>:
   <div>
     <div className={style.row}>
@@ -140,5 +170,5 @@ export default
       <div><button onClick={btnClick}>enter</button></div>
     </div>
   </div>
-  return children['loggedin'+name]?el2:children['logError'+name]?el3:el1
+  return state.loggedin?el2:state.logError?el3:el1
 }

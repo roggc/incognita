@@ -1,0 +1,16 @@
+@keyframes fade
+{
+  from{opacity: 0;}
+  to{opacity: 1;}
+}
+.fade
+{
+  transition: opacity 1s;
+  animation-name:fade;
+  animation-duration:1s;
+}
+
+.fade2
+{
+  transition: opacity 1s;
+}

@@ -12,3 +12,15 @@
 {
   transition: opacity 0.5s;
 }
+
+.fadeAnim
+{
+  animation-name:fade;
+  animation-duration:1s;
+}
+
+@keyframes fade
+{
+  from{opacity: 0;}
+  to{opacity: 1;}
+}

@@ -3,10 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "webpackdev": "NODE_ENV=dev webpack -w --mode development --config src/client/wpclient.config.js",
+  "scripts":
+  {
+    "wpclientdev": "NODE_ENV=dev webpack -w --mode development --config src/client/wpclient.config.js",
     "nodemon": "nodemon --exec \"babel-node -r node_modules/dotenv/config\" src/server/server.js",
-    "dev": "npm run webpackdev& npm run nodemon"
+    "dev": "npm run wpclientdev& npm run nodemon",
+    "wpclient": "webpack --mode production --config src/client/wpclient.config.js",
+    "wpserver": "webpack --mode production --config src/server/wpserver.config.js",
+    "build": "npm run wpclient&& npm run wpserver",
+    "start": "npx node -r dotenv/config dist/server.js"
   },
   "author": "",
   "license": "ISC",
